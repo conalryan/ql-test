@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects'; // Angular CLI environment
+import { SharedModule } from 'projects/lib/src/lib/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,13 @@ import { EffectsModule } from '@ngrx/effects'; // Angular CLI environment
     AppRoutingModule,
     NgbModule,
     StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
-    EffectsModule.forRoot([]),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

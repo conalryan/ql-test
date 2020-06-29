@@ -45,3 +45,12 @@ StoreDevtoolsModule.instrument({
 `ng add @ngrx/effects`
 
 `ng add @ngrx/entity`
+
+Lib
+
+`ng g library lib --lintFix=true`
+
+` ng g module shared --project=lib`
+
+`ng g component shared/components/nav-bar --export=true --lintFix=true --project=lib`
+
