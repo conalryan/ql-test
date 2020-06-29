@@ -50,7 +50,11 @@ Lib
 
 `ng g library lib --lintFix=true`
 
-` ng g module shared --project=lib`
+`ng g module shared --project=lib`
 
 `ng g component shared/components/nav-bar --export=true --lintFix=true --project=lib`
+
+`ng g module contacts --project=lib`
+
+`ng generate @ngrx/schematics:feature contacts/state/contacts --project lib --module contacts/contacts.module.ts --api true`
 
