@@ -7,22 +7,7 @@ export const selectContactsState = createFeatureSelector<fromContacts.State>(
 
 export const getSelectedContactId = (state: fromContacts.State) => state.selectedContactId;
  
-// get the selectors from the adapter
-const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal,
-} = fromContacts.adapter.getSelectors();
- 
-// select the array of contact ids
-export const selectContactIds = selectIds;
- 
-// select the dictionary of contact entities
-export const selectContactEntities = selectEntities;
- 
-// select the array of contacts
-export const selectAllContacts = selectAll;
- 
-// select the total contact count
-export const selectContactTotal = selectTotal;
+export const selectContactIds = createSelector(selectContactsState, (state) => state?.ids);
+export const selectContactEntities = createSelector(selectContactsState, (state) => state?.entities);
+export const selectAllContacts = createSelector(selectContactsState, (state) => (state?.ids as Array<string|number>)?.map(id => state?.entities[id]));
+export const selectContactTotal = createSelector(selectContactsState, (state) => state?.ids?.length);

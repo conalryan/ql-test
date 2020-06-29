@@ -46,7 +46,7 @@ StoreDevtoolsModule.instrument({
 
 `ng add @ngrx/entity`
 
-Lib
+## Lib
 
 `ng g library lib --lintFix=true`
 
@@ -56,5 +56,6 @@ Lib
 
 `ng g module contacts --project=lib`
 
-`ng generate @ngrx/schematics:feature contacts/state/contacts --project lib --module contacts/contacts.module.ts --api true`
+`ng g @ngrx/schematics:feature contacts/state/contacts --project=lib --module contacts/contacts.module.ts --api true`
 
+`ng g component contacts/container/contact-list --project=lib`

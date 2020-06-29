@@ -5,20 +5,12 @@ import { Contact } from '../model/contact';
 
 export const contactsFeatureKey = 'contacts';
 
-// export interface State {
-
-// }
-
-// export const initialState: State = {
-
-// };
-
 export interface State extends EntityState<Contact> {
   selectedContactId: number | null;
 }
 
 export function selectContactId(a: Contact): string {
-  return a._id;
+  return a?._id;
 }
  
 export const adapter: EntityAdapter<Contact> = createEntityAdapter<Contact>({
@@ -30,12 +22,6 @@ export const initialState: State = adapter.getInitialState({
   // additional entity state properties
   selectedContactId: null,
 });
- 
-// const contactReducer = createReducer(initialState);
- 
-// export function reducer(state: State | undefined, action: Action) {
-//   return contactReducer(state, action);
-// }
 
 export const reducer = createReducer(
   initialState,

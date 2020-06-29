@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
-import { LibComponent } from './lib.component';
+import { ContactsModule } from './contacts';
+import { SharedModule } from './shared';
 
 @NgModule({
-  declarations: [LibComponent],
+  declarations: [],
   imports: [
+    ContactsModule,
+    SharedModule
   ],
-  exports: [LibComponent]
+  exports: [
+    ContactsModule,
+    SharedModule
+  ]
 })
 export class LibModule { }

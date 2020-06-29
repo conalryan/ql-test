@@ -9,6 +9,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects'; // Angular CLI environment
 import { SharedModule } from 'projects/lib/src/lib/shared/shared.module';
+import { ContactsModule } from 'projects/lib/src/public-api';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SharedModule } from 'projects/lib/src/lib/shared/shared.module';
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
-    SharedModule
+    ContactsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

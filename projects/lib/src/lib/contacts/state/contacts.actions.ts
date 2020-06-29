@@ -15,3 +15,7 @@ export const loadContactsFailure = createAction(
   '[Contacts] Load Contacts Failure',
   props<{ error: HttpErrorResponse }>()
 );
+
+export const addContact = createAction(
+  '[Contacts] Add Contact'
+);
