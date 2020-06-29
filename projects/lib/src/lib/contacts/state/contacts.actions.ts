@@ -16,6 +16,25 @@ export const loadContactsFailure = createAction(
   props<{ error: HttpErrorResponse }>()
 );
 
+export const addContactForm = createAction(
+  '[Contacts] Add Contact Form'
+);
+
 export const addContact = createAction(
-  '[Contacts] Add Contact'
+  '[Contacts] Add Contact',
+  props<Contact>()
+);
+
+export const addContactCancel = createAction(
+  '[Contacts] Add Contact Cancel'
+);
+
+export const addContactSuccess = createAction(
+  '[Contacts] Add Contact Success',
+  props<{ data: Contact }>()
+);
+
+export const addContactFailure = createAction(
+  '[Contacts] Add Contact Failure',
+  props<{ error: HttpErrorResponse }>()
 );

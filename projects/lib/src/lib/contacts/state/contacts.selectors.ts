@@ -11,3 +11,8 @@ export const selectContactIds = createSelector(selectContactsState, (state) => s
 export const selectContactEntities = createSelector(selectContactsState, (state) => state?.entities);
 export const selectAllContacts = createSelector(selectContactsState, (state) => (state?.ids as Array<string|number>)?.map(id => state?.entities[id]));
 export const selectContactTotal = createSelector(selectContactsState, (state) => state?.ids?.length);
+
+export const selectedContact = createSelector(selectContactsState, (state) => {
+  const id = state?.selectedContactId || '';
+  return state?.entities[id];
+});

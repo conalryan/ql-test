@@ -7,15 +7,18 @@ import { ContactsEffects } from './state/contacts.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactListComponent } from './container/contact-list/contact-list.component';
 import { ContactsRoutingModule } from './contacts-routing.module';
+import { ContactDetailComponent } from './container/contact-detail/contact-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ContactListComponent],
+  declarations: [ContactListComponent, ContactDetailComponent],
   imports: [
     CommonModule,
     StoreModule.forFeature(fromContacts.contactsFeatureKey, fromContacts.reducer),
     EffectsModule.forFeature([ContactsEffects]),
     HttpClientModule,
+    ReactiveFormsModule,
     ContactsRoutingModule
   ],
   exports: [ContactListComponent]

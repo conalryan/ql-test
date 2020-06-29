@@ -1,0 +1,10 @@
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-light .navbar-brand {
+    color: $primary;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+}

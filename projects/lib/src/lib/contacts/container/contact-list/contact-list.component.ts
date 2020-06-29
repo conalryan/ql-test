@@ -1,10 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromContacts from '../../state/contacts.reducer';
-import { selectAllContacts } from '../../state/contacts.selectors';
+import { selectAllContacts, selectContactTotal } from '../../state/contacts.selectors';
 import { Observable, Subject } from 'rxjs';
 import { Contact } from '../../model/contact';
-import { loadContacts, addContact } from '../../state/contacts.actions';
+import { loadContacts, addContactForm } from '../../state/contacts.actions';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'lib-contact-list',
@@ -14,13 +15,20 @@ import { loadContacts, addContact } from '../../state/contacts.actions';
 })
 export class ContactListComponent implements OnInit, OnDestroy {
   private unsubscribe$ = new Subject<void>();
-  
+
   contacts$: Observable<(Contact | undefined)[]>;
 
   constructor(private readonly store: Store<fromContacts.State>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(loadContacts());
+    this.store.select(selectContactTotal)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((total: number) => {
+        console.log(`total: ${total}`);
+        if (!total) {
+          this.store.dispatch(loadContacts());
+        }
+      })
     this.contacts$ = this.store.select(selectAllContacts);
   }
 
@@ -30,6 +38,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
   }
 
   addContact(): void {
-    this.store.dispatch(addContact());
+    this.store.dispatch(addContactForm());
   }
 }

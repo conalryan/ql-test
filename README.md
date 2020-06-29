@@ -59,3 +59,5 @@ StoreDevtoolsModule.instrument({
 `ng g @ngrx/schematics:feature contacts/state/contacts --project=lib --module contacts/contacts.module.ts --api true`
 
 `ng g component contacts/container/contact-list --project=lib`
+
+`ng g component contacts/container/contact-detail --project=lib`

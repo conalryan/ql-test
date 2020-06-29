@@ -1,0 +1,52 @@
+<div class="row">
+    <h2 class="mt-4 mb-4 ml-2 d-inline-block">Create Contact</h2>
+</div>
+
+<form [formGroup]="form">
+
+    <div class="row mr-0 ml-0">
+        <div class="form-group col-3">
+            <label class="d-block" for="first-name">First name</label>
+            <input type="input" class="form-control" id="first-name" formControlName="firstName" />
+        </div>
+
+        <div class="form-group col-3">
+            <label class="d-block" for="last-name">Last name</label>
+            <input type="input" class="form-control" id="last-name" formControlName="lastName" />
+        </div>
+    </div>
+
+    <div class="row mr-0 ml-0">
+        <div class="form-group col-6">
+            <label class="d-block" for="company">Company</label>
+            <input type="input" class="form-control" id="company" formControlName="company" />
+        </div>
+    </div>
+
+    <div class="row mr-0 ml-0">
+        <div class="form-group col-3">
+            <label class="d-block" for="email">Email</label>
+            <input type="input" class="form-control" id="email" formControlName="email" />
+        </div>
+
+        <div class="form-group col-3">
+            <label class="d-block" for="phone">Phone</label>
+            <input type="input" class="form-control" id="phone" formControlName="phone" />
+        </div>
+    </div>
+
+    <div class="row mr-0 ml-0">
+        <div class="form-group col-6">
+            <label class="d-block" for="address">Address</label>
+            <input type="input" class="form-control" id="address" formControlName="address" />
+        </div>
+    </div>
+
+    <div class="row mr-0 ml-0">
+        <div class="col-6">
+            <button type="button" class="btn btn-danger" id="cancel" (click)="cancel()">Cancel</button>
+            <button type="button" class="btn btn-secondary ml-2" id="clear" (click)="clear()">Clear</button>
+            <button type="button" class="btn btn-primary ml-2" id="save" (click)="save()" [disabled]="form.invalid">Save</button>
+        </div>
+    </div>
+</form>
