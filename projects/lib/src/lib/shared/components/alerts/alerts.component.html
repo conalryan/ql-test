@@ -1,4 +1,0 @@
-<p *ngFor="let alert of alerts$ | async">
-    <ngb-alert *ngIf="alert.type !== 'success'" [type]="alert.type">{{ alert.message }}</ngb-alert>
-    <ngb-alert *ngIf="alert.type === 'success'" [type]="alert.type">{{ alert.message }}</ngb-alert>
-</p>

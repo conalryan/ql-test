@@ -17,7 +17,7 @@ export class FormErrorDirective implements OnInit {
 
   ngOnInit(): void {
     // TODO: Handle multiple errors, set classes rather than hard coded styles
-    this.control.valueChanges?.pipe(debounceTime(1000)).subscribe(value => {
+    this.control.valueChanges?.pipe(debounceTime(500)).subscribe(value => {
       if (this.control.dirty && this.control.invalid) {  
         this.addErrors();
       } else {

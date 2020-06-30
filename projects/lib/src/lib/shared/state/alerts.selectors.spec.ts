@@ -7,6 +7,6 @@ describe('Alerts Selectors', () => {
       [fromAlerts.alertsFeatureKey]: {}
     });
 
-    expect(result).toEqual({alerts: []});
+    expect(result).toEqual(Object({}));
   });
 });

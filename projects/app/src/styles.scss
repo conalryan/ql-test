@@ -2,3 +2,8 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+.required-icon:before {
+    content: '* ';
+    color: $danger;
+}

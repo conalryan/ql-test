@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ContactsEffects } from '../..';
 import * as fromContacts from '../../state/contacts.reducer';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ContactListComponent', () => {
   let component: ContactListComponent;
@@ -17,6 +18,7 @@ describe('ContactListComponent', () => {
         EffectsModule.forRoot([]),
         StoreModule.forFeature(fromContacts.contactsFeatureKey, fromContacts.reducer),
         EffectsModule.forFeature([ContactsEffects]),
+        HttpClientTestingModule
       ],
       declarations: [ ContactListComponent ]
     })

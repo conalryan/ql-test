@@ -32,4 +32,8 @@ export class AlertsComponent implements OnInit {
       }
     });
   }
+
+  close(alert: Alert): void {
+    this.store.dispatch(removeAlert({data: alert}));
+  }
 }

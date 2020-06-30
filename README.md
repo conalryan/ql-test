@@ -4,60 +4,47 @@
 
 `yarn install`
 
+`ng build`
+
+`ng build --prod`
+
 `ng serve -o`
 
-## Scaffold
-`ng new ql-test --create-application=false --package-manager=yarn --strict=true`
+`ng test app`
 
-`ng g application app --lintFix=true --routing=true --style=scss`
+`ng test lib`
 
-Add to `angular.json`
+## Project setup
 
-```json
-"schematics": {
-    "@schematics/angular:component": {
-        "changeDetection": "OnPush",
-        "styleext": "scss"
-    }
-}
-```
+*projects/app*
 
-### Install deps
+- Shell that handles user flow between pages.
 
-ng-bootstrap and bootstrap
+*project/lib*
 
-`ng add @ng-bootstrap/ng-bootstrap`
+- /contacts
+    - /container
+        - /contact-detail: component that interact with NGRX store and is self contained.
+        - /contact-list: component that interact with NGRX store and is self contained.
+    - /form: To create new contact
+    - /model: Interface to match api response
+    - /service: Calls external api 
+    - /state: NGRX store actions, effects, reducer, selectors for Contacts Feature
+- /shared
+    - /container
+        - /alerts: container that interacts with NGRX store and is self contained
+    - /components
+        - /nav-bar: Simple component with router links
+    - /directives: To add error messages and styles on form errors
+    - /model: Alert model
+    - /state: NGRX store actions, effects, reducer, selectors for Alerts Feature
 
-NGRX
+## Dependencies
 
-`ng add @ngrx/store`
+- Angular 9
+- ng-bootstrap 6
+- bootstrap 4
+- NGRX 9
 
-`yarn add @ngrx/store-devtools`
 
-Add to `app.module`
-```typescript
-StoreDevtoolsModule.instrument({
-    maxAge: 25, // Retains last 25 states
-    logOnly: environment.production, // Restrict extension to log-only mode
-}),
-```
-
-`ng add @ngrx/effects`
-
-`ng add @ngrx/entity`
-
-## Lib
-
-`ng g library lib --lintFix=true`
-
-`ng g module shared --project=lib`
-
-`ng g component shared/components/nav-bar --export=true --lintFix=true --project=lib`
-
-`ng g module contacts --project=lib`
-
-`ng g @ngrx/schematics:feature contacts/state/contacts --project=lib --module contacts/contacts.module.ts --api true`
-
-`ng g component contacts/container/contact-list --project=lib`
-
-`ng g component contacts/container/contact-detail --project=lib`
+### Note: Tested with Mac Mojave 10.14.6 on Chrome 83.0.4103.116

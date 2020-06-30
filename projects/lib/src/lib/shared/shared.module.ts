@@ -4,7 +4,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbDropdownModule, NgbAlert, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { FormErrorDirective } from './directives/form-error/form-error.directive';
-import { AlertsComponent } from './components/alerts/alerts.component';
+import { AlertsComponent } from './container/alerts/alerts.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromAlerts from './state/alerts.reducer';
 @NgModule({
