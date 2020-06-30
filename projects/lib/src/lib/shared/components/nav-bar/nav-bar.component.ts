@@ -14,9 +14,4 @@ export class NavBarComponent {
   collapsed = true;
 
   constructor() { }
-
-  logout(): void {
-    console.log('Logging out...');
-  }
-
 }

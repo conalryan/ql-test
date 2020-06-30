@@ -4,6 +4,9 @@ import { Actions, ofType } from '@ngrx/effects';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { addContactForm, addContactSuccess, addContactCancel } from 'projects/lib/src/lib/contacts';
+import { Store } from '@ngrx/store';
+import { loadAlert } from 'projects/lib/src/lib/shared/state/alerts.actions';
+import { Alert } from 'projects/lib/src/lib/shared/model/alert';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'app';
 
   constructor(
+    private readonly store: Store<any>,
     private readonly actions$: Actions,
     private readonly router: Router
   ) { }
@@ -33,10 +37,21 @@ export class AppComponent implements OnInit, OnDestroy {
     this.actions$
       .pipe(
         takeUntil(this.unsubscribe$),
-        ofType(addContactSuccess, addContactCancel)
+        ofType(addContactCancel)
       )
       .subscribe((action: any) => {
         this.router.navigateByUrl('list');
+      });
+
+    this.actions$
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        ofType(addContactSuccess)
+      )
+      .subscribe((action: any) => {
+        this.router.navigateByUrl('list');
+        const alert: Alert = {type: 'success', message: 'Added new contact'};
+        this.store.dispatch(loadAlert({data: alert}));
       });
   }
 

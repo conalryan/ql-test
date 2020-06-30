@@ -24,7 +24,6 @@ export class ContactListComponent implements OnInit, OnDestroy {
     this.store.select(selectContactTotal)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((total: number) => {
-        console.log(`total: ${total}`);
         if (!total) {
           this.store.dispatch(loadContacts());
         }
