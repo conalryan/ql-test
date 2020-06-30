@@ -12,6 +12,6 @@ import { FormErrorDirective } from './directives/form-error/form-error.directive
     NgbDropdownModule,
     RouterModule
   ],
-  exports: [NavBarComponent]
+  exports: [NavBarComponent, FormErrorDirective]
 })
 export class SharedModule { }

@@ -9,18 +9,20 @@ import { ContactListComponent } from './container/contact-list/contact-list.comp
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactDetailComponent } from './container/contact-detail/contact-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared';
 
 
 @NgModule({
   declarations: [ContactListComponent, ContactDetailComponent],
   imports: [
     CommonModule,
-    StoreModule.forFeature(fromContacts.contactsFeatureKey, fromContacts.reducer),
-    EffectsModule.forFeature([ContactsEffects]),
     HttpClientModule,
     ReactiveFormsModule,
+    StoreModule.forFeature(fromContacts.contactsFeatureKey, fromContacts.reducer),
+    EffectsModule.forFeature([ContactsEffects]),
+    SharedModule,
     ContactsRoutingModule
   ],
-  exports: [ContactListComponent]
+  exports: [ContactListComponent, ContactDetailComponent]
 })
 export class ContactsModule { }
